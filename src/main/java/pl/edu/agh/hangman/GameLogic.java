@@ -30,15 +30,19 @@ public class GameLogic {
         }
     }
 
-    private void checkUserInput(char userInput){
+    protected void checkUserInput(char userInput) {
 
-        if (!answer.contains(Character.toString(userInput))){
+        userInput = Character.toUpperCase(userInput);
+
+        if (!answer.toUpperCase().contains(Character.toString(userInput))) {
             lives--;
         }
 
     }
 
-    private void updateGameBoard(char userInput) {
+    protected void updateGameBoard(char userInput) {
+
+        userInput = Character.toUpperCase(userInput);
 
         StringBuilder builder = new StringBuilder(gameBoard);
 
@@ -47,25 +51,39 @@ public class GameLogic {
             if (answer.charAt(i) == userInput) {
 
                 builder.setCharAt(i, userInput);
-
             }
-
         }
-
         gameBoard = builder.toString();
 
     }
 
-    private String generateGameBoard(String answer) {
+    protected String generateGameBoard(String answer) {
 
+        StringBuilder builder = new StringBuilder();
         String gameBoard = "";
 
         for (int i = 0; i < answer.length(); i++) {
-            gameBoard += "_";
+
+            if (answer.charAt(i) == ' ') {
+                gameBoard += " ";
+            } else {
+                gameBoard += "_";
+            }
         }
 
         return gameBoard;
 
     }
 
+    public int getLives() {
+        return lives;
+    }
+
+    public String getAnswer() {
+        return answer;
+    }
+
+    public String getGameBoard() {
+        return gameBoard;
+    }
 }
