@@ -67,8 +67,6 @@ public class Hangman {
 
         System.out.println(word);
 
-
-
         GameLogic gameLogic = new GameLogic(HANGMANPICS.length, word);
         gameLogic.mainLoop();
 

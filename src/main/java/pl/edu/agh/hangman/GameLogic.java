@@ -57,7 +57,7 @@ public class GameLogic {
 
     }
 
-    protected String generateGameBoard(String answer) {
+    private String generateGameBoard(String answer) {
 
         StringBuilder builder = new StringBuilder();
         String gameBoard = "";

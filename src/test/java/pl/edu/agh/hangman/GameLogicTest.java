@@ -10,10 +10,6 @@ public class GameLogicTest {
 
     private GameLogic gameLogic;
 
-    @Before
-    public void init() {
-        gameLogic = new GameLogic(5, "abc");
-    }
 
     @Test
     public void correctInputLiveNoChange(){
@@ -39,6 +35,22 @@ public class GameLogicTest {
         Assert.assertEquals(livesExpected, livesActual);
     }
 
+//    @Test
+//    public void correctInputUpdateGameboard() {
+//
+//        gameLogic = new GameLogic(5, "abc");
+//
+//        char input = 'a';
+//        gameLogic.updateGameBoard(input);
+//
+//        System.out.println(gameLogic.getGameBoard());
+//
+//        String gameBoardExpected = "a__";
+//        String gameBoardActual = gameLogic.getGameBoard();
+//
+//        Assert.assertEquals(gameBoardExpected, gameBoardActual);
+//
+//    }
 
 
 }
