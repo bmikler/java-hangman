@@ -32,10 +32,8 @@ public class GameLogic {
             System.out.println("YOU WIN!!!!");
             System.out.println("ANSWER: " + getGameBoard());
         } else {
-            System.out.println("You are dead");
+            System.out.println("YOU DIE!");
         }
-
-
 
     }
 
