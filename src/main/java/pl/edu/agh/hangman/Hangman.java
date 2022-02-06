@@ -65,9 +65,12 @@ public class Hangman {
         List<String> strings = wordLoader.readFile("slowa.txt");
         String word = wordLoader.drawWord(strings);
 
-        System.out.println(word);
+        word = wordLoader.userGivenWord();
 
-        GameLogic gameLogic = new GameLogic(HANGMANPICS.length, word);
+        System.out.println(word);
+        Drawer drawer = new Drawer();
+
+        GameLogic gameLogic = new GameLogic(drawer, HANGMANPICS.length, word);
         gameLogic.mainLoop();
 
 

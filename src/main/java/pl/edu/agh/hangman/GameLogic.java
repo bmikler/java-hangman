@@ -4,30 +4,39 @@ import java.util.Scanner;
 
 public class GameLogic {
 
+    private Drawer drawer;
     private int lives;
     private String answer;
     private String gameBoard;
 
-    public GameLogic(int lives, String answer) {
+    public GameLogic(Drawer drawer, int lives, String answer) {
+        this.drawer = drawer;
         this.lives = lives;
         this.answer = answer;
         this.gameBoard = generateGameBoard(answer);
     }
 
     public void mainLoop() {
-        Scanner scanner = new Scanner(System.in);
 
         while (!gameBoard.equals(answer) && lives > 0) {
-
             System.out.println(lives);
-            System.out.println(gameBoard);
-            System.out.println("input:");
-            char input = scanner.nextLine().toCharArray()[0];
+            drawer.drawGameboard(gameBoard, lives);
+            char input = drawer.userInput();;
 
             checkUserInput(input);
             updateGameBoard(input);
 
         }
+
+        if (gameBoard.equals(answer)) {
+            System.out.println("YOU WIN!!!!");
+            System.out.println("ANSWER: " + getGameBoard());
+        } else {
+            System.out.println("You are dead");
+        }
+
+
+
     }
 
     protected void checkUserInput(char userInput) {
